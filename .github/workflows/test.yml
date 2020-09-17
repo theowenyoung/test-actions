@@ -13,5 +13,5 @@ jobs:
         run: |
           echo "hello"
       - name: run act
-        run: act -W ./workflows --verbose
+        run: act -W ./workflows
           
