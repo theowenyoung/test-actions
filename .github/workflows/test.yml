@@ -7,11 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: setup act
-        uses: actionsflow/setup-act-for-actionsflow@v1
-      - name: Print Outputs
-        run: |
-          echo "hello"
-      - name: run act
-        run: act -W ./workflows
-          
+      - name: Push Cache Branch
+        run: |-
+          mkdir -p .actionsflow-cache-temp
+          cd .actionsflow-cache-temp
+          echo $(date '+%F_%H:%M:%S' ) >>text.txt
+          ls -l
+          git init
+          git checkout --orphan test
+          git config user.name github-actions[bot]
+          git config user.email ithub-actions[bot]@users.noreply.github.com
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}}.git
+          git add --all
+          git commit -m "chore: backup cache key file"
+          git push origin --force test
