@@ -1,0 +1,16 @@
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup act
+        uses: actionsflow/setup-act-for-actionsflow@v1
+      - name: Print Outputs
+        run: |
+          echo "hello"
+      - name: run act
+        run: act -W ./workflows --verbose
+          
