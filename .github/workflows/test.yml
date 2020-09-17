@@ -6,6 +6,7 @@ jobs:
     name: Print
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: setup act
         uses: actionsflow/setup-act-for-actionsflow@v1
       - name: Print Outputs
