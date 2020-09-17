@@ -16,7 +16,7 @@ jobs:
           git init
           git checkout --orphan test
           git config user.name github-actions[bot]
-          git config user.email ithub-actions[bot]@users.noreply.github.com
+          git config user.email github-actions[bot]@users.noreply.github.com
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}}.git
           git add --all
           git commit -m "chore: backup cache key file"
