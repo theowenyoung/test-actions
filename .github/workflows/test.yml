@@ -23,7 +23,7 @@ jobs:
       - run: echo ${{steps.cache-key.outputs.hash}} >> cache-key.txt
       - uses: actions/upload-artifact@v2
         with:
-          name: actionsflow-cache-key/${{steps.cache-key.outputs.hash}}
+          name: actionsflow-cache-key____${{steps.cache-key.outputs.hash}}
           path: cache-key.txt
           if-no-files-found: ignore
       - name: Push Cache Branch
