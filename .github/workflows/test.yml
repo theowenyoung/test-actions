@@ -16,7 +16,7 @@ jobs:
       - run: echo $(date '+%F_%H:%M:%S' ) >>text.txt
       - run: ls -l && cat text.txt
         name: echo cache
-      - uses: hmanzur/actions-set-secret@2.0.2
+      - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: 'MY_SECRET_NAME'
           value: 'Lorem ipsun dolor simit'
