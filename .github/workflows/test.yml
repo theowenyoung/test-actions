@@ -11,14 +11,14 @@ jobs:
         id: get-cache-key-result
         with:
           script: |
-            const artifacts = github.actions.listArtifactsForRepo({
+            const artifacts = await github.actions.listArtifactsForRepo({
               owner:context.repo.owner,
               repo:context.repo.repo,
             });
             console.log('artifacts',artifacts)
 
           result-encoding: string
-      - run: echo "::set-output name=:hash:$(date '+%F_%H:%M:%S')"
+      - run: echo "::set-output name=hash::$(date '+%F_%H:%M:%S')"
         id: cache-key
       - run: echo ${{steps.cache-key.outputs.hash}} >> cache-key.txt
       - uses: actions/upload-artifact@v2
