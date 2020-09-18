@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: pat-s/always-upload-cache@master
+      - uses: theowenyoung/cache@master
         with:
           path: |
             text.txt
