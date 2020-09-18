@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ::set-output name=:hash:$(date '+%F_%H:%M:%S' )
+      - run: echo "::set-output name=:hash:$(date '+%F_%H:%M:%S')"
         id: cache-key
       - uses: actions/upload-artifact@v2
         with:
