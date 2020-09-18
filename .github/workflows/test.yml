@@ -7,20 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: theowenyoung/cache@master
+      - run: ::set-output name=:hash:$(date '+%F_%H:%M:%S' )
+        id: cache-key
+      - uses: actions/upload-artifact@v2
         with:
-          path: |
-            text.txt
-          key: testcachekey
-      - run: ls -l && cat text.txt
-      - run: echo $(date '+%F_%H:%M:%S' ) >>text.txt
-      - run: ls -l && cat text.txt
-        name: echo cache
-      - uses: hmanzur/actions-set-secret@v2.0.0
-        with:
-          name: 'MY_SECRET_NAME'
-          value: 'Lorem ipsun dolor simit'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: actionsflow-cache-key/${{steps.cache-key.outputs.hash}}
+          path: path/to/artifact/world.txt
+          if-no-files-found: ignore
       - name: Push Cache Branch
         if: false
         run: |-
