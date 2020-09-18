@@ -7,6 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/github-script@v3
+        id: get-cache-key-result
+        with:
+          script: |
+            const artifacts = octokit.actions.listArtifactsForRepo({
+              owner:context.repo.owner,
+              repo:context.repo.repo,
+            });
+            console.log('artifacts',artifacts)
+            
+          result-encoding: string
       - run: echo "::set-output name=:hash:$(date '+%F_%H:%M:%S')"
         id: cache-key
       - uses: actions/upload-artifact@v2
