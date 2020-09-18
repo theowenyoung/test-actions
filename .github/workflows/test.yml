@@ -15,7 +15,7 @@ jobs:
               owner:context.repo.owner,
               repo:context.repo.repo,
             });
-            console.log('artifacts',artifacts)
+            console.log(artifacts.data.artifacts)
 
           result-encoding: string
       - run: echo "::set-output name=hash::${{hashFiles('README.md')}}"
