@@ -7,12 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo $(date '+%F_%H:%M:%S' ) >>text.txt
       - uses: pat-s/always-upload-cache@master
         with:
           path: |
             text.txt
           key: testcachekey
+      - run: ls -l && cat text.txt
+      - run: echo $(date '+%F_%H:%M:%S' ) >>text.txt
       - run: ls -l && cat text.txt
         name: echo cache
       - name: Push Cache Branch
