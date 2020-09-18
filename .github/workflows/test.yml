@@ -16,14 +16,15 @@ jobs:
               repo:context.repo.repo,
             });
             console.log('artifacts',artifacts)
-            
+
           result-encoding: string
       - run: echo "::set-output name=:hash:$(date '+%F_%H:%M:%S')"
         id: cache-key
+      - run: echo ${{steps.cache-key.outputs.hash}} >> cache-key.txt
       - uses: actions/upload-artifact@v2
         with:
           name: actionsflow-cache-key/${{steps.cache-key.outputs.hash}}
-          path: path/to/artifact/world.txt
+          path: cache-key.txt
           if-no-files-found: ignore
       - name: Push Cache Branch
         if: false
