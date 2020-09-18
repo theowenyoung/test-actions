@@ -18,7 +18,7 @@ jobs:
             console.log('artifacts',artifacts)
 
           result-encoding: string
-      - run: echo "::set-output name=hash::$(date '+%F_%H:%M:%S')"
+      - run: echo "::set-output name=hash::${{hashFiles(README.md)}}"
         id: cache-key
       - run: echo ${{steps.cache-key.outputs.hash}} >> cache-key.txt
       - uses: actions/upload-artifact@v2
