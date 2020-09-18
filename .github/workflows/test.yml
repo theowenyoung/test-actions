@@ -11,7 +11,7 @@ jobs:
         id: get-cache-key-result
         with:
           script: |
-            const artifacts = octokit.actions.listArtifactsForRepo({
+            const artifacts = github.actions.listArtifactsForRepo({
               owner:context.repo.owner,
               repo:context.repo.repo,
             });
