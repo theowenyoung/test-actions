@@ -1,0 +1,14 @@
+name: "Actionsflow Hooks"
+description: "GitHub Actions for Actionsflow Hooks"
+author: "Owen Young"
+inputs:
+  version:
+    description: "The act version to download (if necessary) and use. Example: latest, 0.2.14"
+    required: false
+    default: "latest"
+runs:
+  using: "node12"
+  post: "index.js"
+branding:
+  icon: "package"
+  color: "yellow"
