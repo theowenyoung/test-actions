@@ -9,6 +9,8 @@ inputs:
 runs:
   using: "node12"
   main: "index.js"
+  pre: "pre.js"
+  post: "post.js"
 branding:
   icon: "package"
   color: "yellow"
