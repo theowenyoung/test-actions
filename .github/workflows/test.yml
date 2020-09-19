@@ -8,5 +8,6 @@ jobs:
     steps:
       - run: pwd
       - run: ls -l -a
+      - run: ls -l -a ${{ github.workspace	}}
       - uses: actions/checkout@v2
       - uses: ./.github/actions/test
