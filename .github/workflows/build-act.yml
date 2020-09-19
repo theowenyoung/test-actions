@@ -5,6 +5,7 @@ jobs:
   print:
     name: Print
     runs-on: ubuntu-latest
+    if: false
     steps:
       - uses: actions/checkout@v2
         with:
