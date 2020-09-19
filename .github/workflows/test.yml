@@ -6,5 +6,7 @@ jobs:
     name: Print
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
+      - run: ls -l -a
       - uses: actions/checkout@v2
       - uses: ./.github/actions/test
