@@ -11,4 +11,4 @@ jobs:
       - run: ls -l -a ${{ github.workspace	}}
       - uses: actions/checkout@v2
       - run: ls -l -a
-      - uses: ./.github/actions/test
+      - uses: theowenyoung/test-action@master
