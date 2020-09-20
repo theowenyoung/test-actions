@@ -8,3 +8,7 @@ jobs:
       - name: Print Outputs
         run: |
           echo "hello"
+      - uses: actions/checkout@v2
+      - run: pwd
+      - run: ls -l -a
+      - run: ls -l -a ${{ github.workspace	}}
