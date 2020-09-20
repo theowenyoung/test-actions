@@ -13,4 +13,4 @@ jobs:
       - name: Setup act
         uses: actionsflow/setup-act-for-actionsflow@v1
       - name: Run act
-        run: ls -l ./bin && ./bin/act --bind --workflows ./workflows
+        run: act --bind --workflows ./workflows
