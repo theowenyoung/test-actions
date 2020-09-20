@@ -5,6 +5,9 @@ jobs:
     name: Print
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
+      - run: ls -l -a
+      - run: ls -l -a ${{ github.workspace	}}
       - name: Print Outputs
         run: |
           echo "hello"
