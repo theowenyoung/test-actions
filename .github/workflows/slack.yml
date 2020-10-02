@@ -10,4 +10,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         uses: Ilshidur/action-slack@2.1.0
         with:
-          args: 'A new commit \\nhas been pushed.' # Optional
+          args: |
+            A new commit \\n has \n  been
+            
+            pushed.
