@@ -11,6 +11,6 @@ jobs:
       - run: ls -l -a ${{ github.workspace	}}
       - name: Get IsPreReLease
         id: is-prerelease
-        run: echo ::set-output name=result::[ $(cat .releaseflag | cut -c1-3) = pre ] && echo true || echo false
+        run: echo ::set-output name=result::$([ $(cat .releaseflag | cut -c1-3) = pre ] && echo true || echo false)
       - name: get is pre
         run: echo ${{ steps.is-prerelease.outputs.result }}
