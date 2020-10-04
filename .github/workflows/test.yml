@@ -8,8 +8,8 @@ jobs:
       - run: pwd
       - run: ls -l -a
       - run: ls -l -a ${{ github.workspace	}}
-      - uses: actions/checkout@v2
-      - name: Setup act
-        uses: actionsflow/setup-act-for-actionsflow@v1
-      - name: Run act
-        run: act --bind --workflows ./workflows
+      - nmae: Get IsPreReLease
+        id: is-prerelease
+        run: echo ::set-output name=result::[ $(cat .releaseflag | cut -c1-3) = pre ] && echo true || echo false
+      - name: get is pre
+        run: echo ${{ steps.is-prerelease.outputs.result }}
