@@ -10,5 +10,5 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: #博客<br>《test》<br>test description<br><br>https://google.com
+          message: "#博客<br>《test》<br>test description<br><br>https://google.com"
           format: html
