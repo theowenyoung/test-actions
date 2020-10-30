@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+jobs:
+  translation:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Translate to ZH
+        id: translation
+        uses: fabasoad/translation-action@main
+        with:
+          provider: microsoft
+          api_key: ${{ secrets.MICROSOFT_TRANSLATE_API_KEY }}
+          lang: 'zh-Hans'
+          api_additional_parameter: westus2
+          source: |
+              1. The hypocrisy is real
+              2. France will not give in to terror after Nice attack, Macron says
+              3. AOC calls GOP ‘sad’ and ‘stupid’ for suggesting the $14,000 wardrobe she wore for Vanity Fair was her own
+              4. TIL that 50%25 of adults in Gary, Indiana are obese, making it the most overweight city in America.
+              5. What if 2020 isn't the "bad year" but it's the start of a bad decade?
+      - name: Print translation result
+        run: echo "${{ steps.translation.outputs.text }}"

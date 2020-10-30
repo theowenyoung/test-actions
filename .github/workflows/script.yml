@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  script:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format message
+        id: format
+        uses: actions/github-script@v2
+        with:
+          script: |
+            return {"message":"Hello 2%"}
+      - name: Format message
+        uses: actions/github-script@v2
+        env:
+          TEXT: ${{ fromJSON(steps.format.outputs.result).message }}
+        with:
+          script: |
+            console.log('text', process.env.TEXT)
+      

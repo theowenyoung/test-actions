@@ -1,0 +1,21 @@
+{
+  "name": "test-actions",
+  "version": "1.0.0",
+  "description": "Test actions test22",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "act": "act --secret-file .secrets -j translation"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theowenyoung/test-actions.git"
+  },
+  "keywords": [],
+  "author": "Owen Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theowenyoung/test-actions/issues"
+  },
+  "homepage": "https://github.com/theowenyoung/test-actions#readme"
+}
