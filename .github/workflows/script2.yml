@@ -20,4 +20,5 @@ jobs:
         with:
           script: |
             console.log('text', process.env.TEXT)
-      
+            // will be printed Hello 2%25 in act
+            // will be printed Hello 2% in Github Actions
