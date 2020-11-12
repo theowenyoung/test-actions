@@ -23,6 +23,6 @@ jobs:
         # env:
         # test: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
         with:
-          data: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
+          data: steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result
           url: https://b764fd50872214eafe0a3c92700c50c4.m.pipedream.net
           method: POST
