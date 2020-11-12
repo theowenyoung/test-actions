@@ -1,0 +1,28 @@
+"on":
+  - workflow_dispatch
+jobs:
+  print:
+    name: Print 0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - run: ls -l $GITHUB_WORKSPACE -a
+      - name: get actionsflow trigger result
+        id: ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit
+        uses: actions/github-script@v2
+        with:
+          script: |
+            const fs = require('fs');
+            const results = require(`${process.env.GITHUB_WORKSPACE}/result.json`)
+            return results
+      - name: test
+        uses: actionsflow/axios@v1
+        # env:
+        # test: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
+        with:
+          data: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
+          url: https://b764fd50872214eafe0a3c92700c50c4.m.pipedream.net
+          method: POST
