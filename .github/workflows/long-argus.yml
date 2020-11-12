@@ -9,9 +9,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - run: ls -l $GITHUB_WORKSPACE -a
       - name: get actionsflow trigger result
-        id: ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit
+        id: result
         uses: actions/github-script@v2
         with:
           script: |
@@ -20,9 +19,7 @@ jobs:
             return results
       - name: test
         uses: actionsflow/axios@v1
-        # env:
-        # test: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
         with:
-          data: steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result
+          data: ${{steps.result.outputs.result}}
           url: https://b764fd50872214eafe0a3c92700c50c4.m.pipedream.net
           method: POST
