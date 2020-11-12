@@ -12,7 +12,7 @@ jobs:
       - run: ls -l $GITHUB_WORKSPACE -a
       - name: get actionsflow trigger result
         id: ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit
-        uses: actions/github-script@v2
+        uses: actions/github-script@v3
         with:
           script: |
             const fs = require('fs');
