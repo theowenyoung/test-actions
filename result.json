@@ -1,7 +1,5 @@
 {
-  "outcome": "success",
-  "conclusion": "success",
-  "outputs": [
+  "data": [
     {
       "approved_at_utc": null,
       "subreddit": "stocks",

@@ -9,17 +9,27 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - run: ls -l $GITHUB_WORKSPACE -a
       - name: get actionsflow trigger result
-        id: result
+        id: ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit
         uses: actions/github-script@v2
         with:
           script: |
             const fs = require('fs');
-            const results = require(`${process.env.GITHUB_WORKSPACE}/result.json`)
-            return results
+            // const results = require(`${process.env.GITHUB_WORKSPACE}/result.json`)
+            // const result =  results.outputs.slice(0,1);
+            //console.log('result',result)
+            // core.exportVariable('ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit', JSON.stringify(result));
+            core.exportVariable('envVar', 'Val');
+
+            return 1
       - name: test
         uses: actionsflow/axios@v1
+        env:
+          TTT: ${{ env.envVar }}
+        # env:
+        # test: ${{toJSON((fromJSON(steps.ACTIONSFLOW_TRIGGER_RESULT_FOR_reddit.outputs.result)).outputs)}}
         with:
-          data: ${{steps.result.outputs.result}}
+          data: ${{ env.TTT }}
           url: https://b764fd50872214eafe0a3c92700c50c4.m.pipedream.net
           method: POST
