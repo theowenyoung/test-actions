@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+  repository_dispatch:
+jobs:
+  save_0:
+    name: save to json 0
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: "echo ${{ (fromJSON(env.ACTIONSFLOW_TRIGGER_RESULT_FOR_script)).outputs.message }}"
+    env:
+      ACTIONSFLOW_TRIGGER_RESULT_FOR_script: |-
+        {
+          "outcome": "success",
+          "conclusion": "success",
+          "outputs": {
+            "id": "https://reddit.buzzing.cc/page-data/issues/page-data.json7",
+            "ivUrl": "https://reddit.buzzing.cc/plain/issues/7",
+            "message": "Reddit 热门: <a href=\"https://reddit.buzzing.cc/plain/issues/7\">每周精选-第7期</a>"
+          }
+        }
