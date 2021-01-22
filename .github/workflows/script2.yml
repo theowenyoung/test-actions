@@ -1,6 +1,5 @@
 on:
   workflow_dispatch:
-  push:
 jobs:
   script2:
     name: Print

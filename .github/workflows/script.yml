@@ -1,6 +1,5 @@
 on:
   workflow_dispatch:
-  push:
 jobs:
   script:
     name: Print
@@ -9,15 +8,10 @@ jobs:
       - name: Format message
         id: format
         uses: actions/github-script@v2
-        with:
-          script: |
-            return {"message":"Hello 2%"}
-      - name: Format message
-        uses: actions/github-script@v2
         env:
-          TEXT: ${{ fromJSON(steps.format.outputs.result).message }}
+          TEST_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log('text', process.env.TEXT)
-            // will be printed Hello 2%25 in act
-            // will be printed Hello 2% in Github Actions
+            console.log('github',process.env.TEST_TOKEN)
+            return {"message":"Hello 2%"}
