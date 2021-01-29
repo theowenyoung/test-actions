@@ -1,0 +1,22 @@
+name: Daily Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup act
+        uses: actionsflow/setup-act@v1
+        with:
+          version: 0.2.19
+
+      - name: Run act version
+        run: echo "::set-output name=act_version::$(act version)"
+        id: act_version
+
+      - name: '${{ steps.act_version.outputs.act_version }}'
+        run: echo '${{ steps.act_version.outputs.act_version }}'
