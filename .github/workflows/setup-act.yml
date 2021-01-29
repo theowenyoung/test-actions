@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup act
-        uses: actionsflow/setup-act@v1
+        uses: actionsflow/setup-act@fix/window
         with:
           version: 0.2.19
 
