@@ -13,3 +13,5 @@ jobs:
         uses: actionsflow/setup-act@fix/window
         with:
           version: 0.2.19
+      - name: github
+        run: git status
