@@ -13,10 +13,3 @@ jobs:
         uses: actionsflow/setup-act@fix/window
         with:
           version: 0.2.19
-
-      - name: Run act version
-        run: echo "::set-output name=act_version::$(act version)"
-        id: act_version
-
-      - name: '${{ steps.act_version.outputs.act_version }}'
-        run: echo '${{ steps.act_version.outputs.act_version }}'
