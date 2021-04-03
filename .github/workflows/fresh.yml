@@ -1,0 +1,41 @@
+name: BuildData
+
+on:
+  workflow_dispatch:
+    input:
+      part:
+        description: 'part'
+        required: false
+        default: ''
+  schedule:
+    - cron: '24 14 * * *'
+
+jobs:
+  translation:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get time to
+        id: time
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            console.log('github',process.env.TEST_TOKEN)
+            const now = Date.now();
+            const specificDate = new Date();
+            specificDate.setUTCHours(14);
+            specificDate.setUTCMinutes(28);
+            const diff = specificDate.getTime()-now;
+            const sleep = (time)=>{
+              return new Promise((resolve)=>{
+                console.log(`sleep for ${diff}ms`)
+                setTimeout(()=>{
+                  resolve()
+                },time)
+              })
+            }
+            if(diff>0){
+              await sleep(diff)
+            }
+            return {"message":"Hello"}
