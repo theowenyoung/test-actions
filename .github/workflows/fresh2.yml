@@ -5,8 +5,8 @@ on:
     inputs:
       part:
         description: 'part level'     
-        required: true
-        default: 'warning'
+        required: false
+        default: ''
   schedule:
     - cron: '42 14 * * *'
 
