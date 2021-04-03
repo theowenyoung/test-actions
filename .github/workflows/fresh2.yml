@@ -2,11 +2,11 @@ name: BuildData2
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       part:
-        description: 'part'
+        description: 'part level'     
         required: true
-        default: ''
+        default: 'warning'
   schedule:
     - cron: '42 14 * * *'
 
