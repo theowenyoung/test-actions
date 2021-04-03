@@ -8,7 +8,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '24 14 * * *'
+    - cron: '26 14 * * *'
 
 jobs:
   translation:
@@ -25,7 +25,7 @@ jobs:
             const now = Date.now();
             const specificDate = new Date();
             specificDate.setUTCHours(14);
-            specificDate.setUTCMinutes(28);
+            specificDate.setUTCMinutes(35);
             const diff = specificDate.getTime()-now;
             const sleep = (time)=>{
               return new Promise((resolve)=>{
