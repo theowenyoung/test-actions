@@ -1,11 +1,11 @@
-name: BuildData
+name: BuildData2
 
 on:
   workflow_dispatch:
     input:
       part:
         description: 'part'
-        required: false
+        required: true
         default: ''
   schedule:
     - cron: '42 14 * * *'
