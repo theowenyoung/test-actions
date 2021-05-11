@@ -25,4 +25,6 @@ jobs:
           result-encoding: string
       - name: Checkout Repo
         uses: actions/checkout@v2
+      - name: sleep
+        run: sleep 3m
 
