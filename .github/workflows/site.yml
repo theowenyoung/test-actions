@@ -25,9 +25,9 @@ jobs:
             return runed.data.total_count
           result-encoding: string
       - name: Checkout Repo
-        if: steps.shouldBuild.outputs.result=="1"
+        if: steps.shouldBuild.outputs.result=='1'
         uses: actions/checkout@v2
       - name: sleep
-        if: steps.shouldBuild.outputs.result=="1"
+        if: steps.shouldBuild.outputs.result=='1'
         run: sleep 3m
 
