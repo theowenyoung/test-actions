@@ -1,0 +1,28 @@
+name: Deploy
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [redeploy]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Check is building
+        uses: actions/github-script@v4
+        id: shouldBuild
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: | 
+            const runed = actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: "site.yml",
+              status:"in_progress"
+            });
+            console.log('runed',runed);
+            return runed.total_count
+          result-encoding: string
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
