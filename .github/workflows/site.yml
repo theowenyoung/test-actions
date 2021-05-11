@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build
     steps:
-      - name: Check is building
+      - name:  Check is building
         uses: actions/github-script@v4
         id: shouldBuild
         with:
@@ -21,10 +21,13 @@ jobs:
               status:"in_progress"
             });
             console.log('runed',runed);
-            return runed.total_count
+            console.log('runed.data.total_count',runed.data.total_count)
+            return runed.data.total_count
           result-encoding: string
       - name: Checkout Repo
+        if: steps.shouldBuild.outputs.result=="1"
         uses: actions/checkout@v2
       - name: sleep
+        if: steps.shouldBuild.outputs.result=="1"
         run: sleep 3m
 
