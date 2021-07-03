@@ -1,0 +1,20 @@
+name: Fetch1
+
+on:
+  workflow_dispatch:
+    input:
+      part:
+        description: 'part'
+        required: false
+        default: ''
+jobs:
+  translation:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get time to
+        id: time
+        uses: actionsflow/axios@v1
+        with:
+          url: https://www.youtube.com/feeds/videos.xml?playlist_id=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-
+          is_debug: true
