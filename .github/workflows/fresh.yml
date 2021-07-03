@@ -7,8 +7,7 @@ on:
         description: 'part'
         required: false
         default: ''
-  schedule:
-    - cron: '26 14 * * *'
+
 
 jobs:
   translation:

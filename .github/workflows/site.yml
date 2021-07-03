@@ -20,8 +20,6 @@ jobs:
               workflow_id: "site.yml",
               status:"in_progress"
             });
-            console.log('runed',runed);
-            console.log('runed.data.total_count',runed.data.total_count)
             return runed.data.total_count
           result-encoding: string
       - name: Checkout Repo
